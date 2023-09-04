@@ -19,7 +19,7 @@ namespace pryBlaiottaIE
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            frmInicio frmPrincipal = new frmInicio();
+            frmPrincipal frmPrincipal = new frmPrincipal();
             frmPrincipal.Show();
             this.Hide();
         }
