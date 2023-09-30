@@ -24,6 +24,7 @@ namespace pryBlaiottaIE
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            progressBar1.Increment(6);
             if (progressBar1.Value < 100)
             {
                 progressBar1.Value++;
