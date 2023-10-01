@@ -43,7 +43,6 @@
             this.txtNExpediente = new System.Windows.Forms.TextBox();
             this.txtJurisdiccion = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -170,18 +169,9 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(128, 280);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 15;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(224, 280);
+            this.btnBorrar.Location = new System.Drawing.Point(127, 280);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 16;
@@ -190,7 +180,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(128, 328);
+            this.btnVolver.Location = new System.Drawing.Point(222, 280);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 17;
@@ -202,10 +192,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(335, 391);
+            this.ClientSize = new System.Drawing.Size(335, 368);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnBorrar);
-            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtJurisdiccion);
             this.Controls.Add(this.txtNExpediente);
@@ -245,7 +234,6 @@
         private System.Windows.Forms.TextBox txtNExpediente;
         private System.Windows.Forms.TextBox txtJurisdiccion;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnVolver;
     }

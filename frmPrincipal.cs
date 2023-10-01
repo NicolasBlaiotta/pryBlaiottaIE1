@@ -16,13 +16,15 @@ namespace pryBlaiottaIE
         public frmPrincipal()
         {
             InitializeComponent();
+            PopulateTreeView();
         }
+        
         class Program
         {
             static void ruta()
             {
                 // Especifica la ruta del archivo que deseas leer
-                string filePath = "C:\\Proveedores";
+                string filePath = "C:\\Users\\Nico\\datosproveedores";
 
                 // Declarar un objeto StreamReader
                 StreamReader reader = null;
@@ -57,7 +59,7 @@ namespace pryBlaiottaIE
         {
             TreeNode rootNode;
 
-            DirectoryInfo info = new DirectoryInfo(@"../..");
+            DirectoryInfo info = new DirectoryInfo(Application.StartupPath);
             if (info.Exists)
             {
                 rootNode = new TreeNode(info.Name);
@@ -70,35 +72,21 @@ namespace pryBlaiottaIE
         void treeView1_NodeMouseClick(object sender,
     TreeNodeMouseClickEventArgs e)
         {
+            CargarDatosDesdeArchivo("C:\\Users\\Nico\\datosproveedores");
             TreeNode newSelected = e.Node;
-            listView1.Items.Clear();
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
-            ListViewItem.ListViewSubItem[] subItems;
-            ListViewItem item = null;
 
-            foreach (DirectoryInfo dir in nodeDirInfo.GetDirectories())
-            {
-                item = new ListViewItem(dir.Name, 0);
-                subItems = new ListViewItem.ListViewSubItem[]
-                    {new ListViewItem.ListViewSubItem(item, "Directory"),
-             new ListViewItem.ListViewSubItem(item,
-                dir.LastAccessTime.ToShortDateString())};
-                item.SubItems.AddRange(subItems);
-                listView1.Items.Add(item);
-            }
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
-                item = new ListViewItem(file.Name, 1);
-                subItems = new ListViewItem.ListViewSubItem[]
-                    { new ListViewItem.ListViewSubItem(item, "File"),
-             new ListViewItem.ListViewSubItem(item,
-                file.LastAccessTime.ToShortDateString())};
+                Console.WriteLine($"{file.Name}");
+                if (file.Name == "datosproveedores")
+                {
 
-                item.SubItems.AddRange(subItems);
-                listView1.Items.Add(item);
+                    CargarDatosDesdeArchivo(file.FullName);
+                }
             }
 
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+         
         }
         private void GetDirectories(DirectoryInfo[] subDirs,
             TreeNode nodeToAddTo)
@@ -111,6 +99,13 @@ namespace pryBlaiottaIE
                 aNode.Tag = subDir;
                 aNode.ImageKey = "folder";
                 subSubDirs = subDir.GetDirectories();
+                FileInfo[] fileInfos = subDir.GetFiles();
+                foreach (FileInfo file in fileInfos)
+                {
+                    TreeNode fileNode = new TreeNode(file.Name, 1,1);
+                    fileNode.Tag = file;
+                    aNode.Nodes.Add(fileNode);
+                }
                 if (subSubDirs.Length != 0)
                 {
                     GetDirectories(subSubDirs, aNode);
@@ -146,7 +141,17 @@ namespace pryBlaiottaIE
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            string leerLinea;
+            string Archivo = Convert.ToString(treeView1.SelectedNode.FullPath);
 
+                string[] pathParts = Archivo.Split('\\');
+                string newPath = String.Join("\\", pathParts.Skip(1));
+                CargarDatosDesdeArchivo(newPath);
+
+
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -163,7 +168,8 @@ namespace pryBlaiottaIE
         // Leer el archivo CSV
         using (StreamReader reader = new StreamReader(rutaArchivo))
         {
-            string[] columnas = reader.ReadLine().Split(',');
+                    int delimeter = 9;
+            string[] columnas = reader.ReadLine().Split(Convert.ToChar(delimeter));
 
             // Agregar las columnas al DataTable
             foreach (string columna in columnas)
@@ -174,7 +180,7 @@ namespace pryBlaiottaIE
             // Leer las filas de datos y agregarlas al DataTable
             while (!reader.EndOfStream)
             {
-                string[] filaDatos = reader.ReadLine().Split(',');
+                string[] filaDatos = reader.ReadLine().Split(Convert.ToChar(delimeter));
                 dataTable.Rows.Add(filaDatos);
             }
         }
@@ -190,7 +196,7 @@ namespace pryBlaiottaIE
 
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
-            string rutaArchivo = "C:\\Proveedores";
+            string rutaArchivo = "C:\\Users\\Nico\\datosproveedores";
             CargarDatosDesdeArchivo(rutaArchivo);
         }
 
