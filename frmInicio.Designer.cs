@@ -33,6 +33,8 @@
             this.lblContraseña = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblInicie = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnIngresar
@@ -79,18 +81,40 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 4;
             // 
+            // lblInicie
+            // 
+            this.lblInicie.AutoSize = true;
+            this.lblInicie.Location = new System.Drawing.Point(3, 47);
+            this.lblInicie.Name = "lblInicie";
+            this.lblInicie.Size = new System.Drawing.Size(65, 13);
+            this.lblInicie.TabIndex = 5;
+            this.lblInicie.Text = "Inicie sesion";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "COVERCARE";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.Color.RosyBrown;
             this.ClientSize = new System.Drawing.Size(246, 317);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblInicie);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblContraseña);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnIngresar);
             this.Name = "frmInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,6 +128,8 @@
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblInicie;
+        private System.Windows.Forms.Label label1;
     }
 }
 
