@@ -24,7 +24,7 @@ namespace pryBlaiottaIE
             static void ruta()
             {
                 // Especifica la ruta del archivo que deseas leer
-                string filePath = "C:\\Users\\Nico\\datosproveedores";
+                string filePath = "C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores";
 
                 // Declarar un objeto StreamReader
                 StreamReader reader = null;
@@ -72,7 +72,7 @@ namespace pryBlaiottaIE
         void treeView1_NodeMouseClick(object sender,
     TreeNodeMouseClickEventArgs e)
         {
-            CargarDatosDesdeArchivo("C:\\Users\\Nico\\datosproveedores");
+            CargarDatosDesdeArchivo("C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores");
             TreeNode newSelected = e.Node;
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
 
@@ -196,7 +196,7 @@ namespace pryBlaiottaIE
 
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
-            string rutaArchivo = "C:\\Users\\Nico\\datosproveedores";
+            string rutaArchivo = "C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores";
             CargarDatosDesdeArchivo(rutaArchivo);
         }
 
