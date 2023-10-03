@@ -200,5 +200,11 @@ namespace pryBlaiottaIE
             CargarDatosDesdeArchivo(rutaArchivo);
         }
 
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            frmNavegar frmNavegar = new frmNavegar();
+            frmNavegar.Show();
+            this.Hide();
+        }
     }
 }
