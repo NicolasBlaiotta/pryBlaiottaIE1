@@ -214,6 +214,7 @@ namespace pryBlaiottaIE
         {
 
             string rutaArchivo = "\\datosproveedores";
+        
 );
         }
 
