@@ -24,7 +24,9 @@ namespace pryBlaiottaIE
             static void ruta()
             {
                 // Especifica la ruta del archivo que deseas leer
-                string filePath = "C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores";
+
+                string filePath = "\\datosproveedores";
+
 
                 // Declarar un objeto StreamReader
                 StreamReader reader = null;
@@ -47,7 +49,6 @@ namespace pryBlaiottaIE
                 }
                 finally
                 {
-                    // Asegúrate de cerrar el StreamReader cuando hayas terminado con él
                     if (reader != null)
                     {
                         reader.Close();
@@ -57,14 +58,20 @@ namespace pryBlaiottaIE
         }
         private void PopulateTreeView()
         {
+            //declaro una variable (llamada rootNode) que se utilizará para representar un nodo en el treeview
             TreeNode rootNode;
 
+            //DirectoryInfo nos permite tener informacion relacionada con directorios del programa de archivos
+            //Application.StartupPath llama directamente a la ruta de inicio de la aplicacion
             DirectoryInfo info = new DirectoryInfo(Application.StartupPath);
             if (info.Exists)
             {
+                //creo un nodo, este mismo actuará como el nodo principal o base.
                 rootNode = new TreeNode(info.Name);
                 rootNode.Tag = info;
+                //se encarga de construir el árbol de directorios a partir del nodo raíz que estableci como "rootNode".
                 GetDirectories(info.GetDirectories(), rootNode);
+                //con esto agrego los directorios en el treeview para que se pueda ver/interactuar con el mismo
                 treeView1.Nodes.Add(rootNode);
             }
         }
@@ -72,12 +79,17 @@ namespace pryBlaiottaIE
         void treeView1_NodeMouseClick(object sender,
     TreeNodeMouseClickEventArgs e)
         {
-            CargarDatosDesdeArchivo("C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores");
+
+            CargarDatosDesdeArchivo("\\datosproveedores");
+            //creo una variable llamada newSelected y la inicializo con el nodo del TreeView que fue clickeado. "e" se refiere al nodo que ha sido seleccionado o que se ha hecho clic
+
             TreeNode newSelected = e.Node;
+            //asociar información adicional a cada nodo del treeview (proveedores)
             DirectoryInfo nodeDirInfo = (DirectoryInfo)newSelected.Tag;
 
             foreach (FileInfo file in nodeDirInfo.GetFiles())
             {
+                //esto lo hice para ver un error (al imprimir) de la ruta de datosproveedores
                 Console.WriteLine($"{file.Name}");
                 if (file.Name == "datosproveedores")
                 {
@@ -88,8 +100,12 @@ namespace pryBlaiottaIE
 
          
         }
+
+        //DirectoryInfo representa los subdirectorios que se deben agregar al árbol de nodos y
+        //TreeNode nodeToAddTo: El nodo al que se deben agregar los subdirectorios y archivos como nodos secundarios
         private void GetDirectories(DirectoryInfo[] subDirs,
             TreeNode nodeToAddTo)
+        //Con este codigo se construye un "arbol" de nodos a partir de un conjunto de directorios y archivos 
         {
             TreeNode aNode;
             DirectoryInfo[] subSubDirs;
@@ -196,8 +212,9 @@ namespace pryBlaiottaIE
 
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
-            string rutaArchivo = "C:\\Users\\Alumnos\\source\\repos\\pryBlaiottaIE1\\bin\\Debug\\Proveedores";
-            CargarDatosDesdeArchivo(rutaArchivo);
+
+            string rutaArchivo = "\\datosproveedores";
+);
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
