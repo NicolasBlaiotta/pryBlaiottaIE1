@@ -87,7 +87,7 @@ namespace pryBlaiottaIE
             fila.Cells.Add(new DataGridViewTextBoxCell { Value = textoIngresado6 });
             fila.Cells.Add(new DataGridViewTextBoxCell { Value = textoIngresado7 });
 
-            formularioGrilla.dataGridView1.Rows.Add(fila);
+
 
 
 
