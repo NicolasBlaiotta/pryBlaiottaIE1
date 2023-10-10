@@ -103,25 +103,37 @@ namespace pryBlaiottaIE
             TreeNode nodeToAddTo)
         //Con este codigo se construye un "arbol" de nodos a partir de un conjunto de directorios y archivos 
         {
+            //Declaro una variable aNode para crear nodos de directorio en el TreeView
             TreeNode aNode;
+            //Declaro subSubDirs para almacenar subdirectorios dentro del directorio 
             DirectoryInfo[] subSubDirs;
             foreach (DirectoryInfo subDir in subDirs)
             {
+                //nuevo nodo del TreeNode llamado aNode
                 aNode = new TreeNode(subDir.Name, 0, 0);
+                //se le asigna una etiqueta 
                 aNode.Tag = subDir;
+                //se le agrega una imagen de carpeta
                 aNode.ImageKey = "folder";
+                //obtiene una lista de subdirectorios dentro del directorio subDir
                 subSubDirs = subDir.GetDirectories();
+                //obtiene una lista de archivos dentro de subDir y la almacena en el array fileInfos. 
                 FileInfo[] fileInfos = subDir.GetFiles();
                 foreach (FileInfo file in fileInfos)
                 {
+                    //crea un nuevo nodo llamado fileNode. file.Name establece el texto que se mostrará en el nodo
                     TreeNode fileNode = new TreeNode(file.Name, 1,1);
                     fileNode.Tag = file;
+                    //se agrega el nodo fileNode como un subnodo del nodo aNode
                     aNode.Nodes.Add(fileNode);
                 }
+                //verifica si existen subdirectorios dentro del directorio actual, si el array no está vacío, significa que hay subdirectorios presentes.
                 if (subSubDirs.Length != 0)
                 {
+                    //agrega todos los subdirectorios de manera recursiva en la estructura del árbol en el caso de que se detecten los mismos
                     GetDirectories(subSubDirs, aNode);
                 }
+                //el nodo aNode se agrega como un subnodo al nodo especificado por nodeToAddTo
                 nodeToAddTo.Nodes.Add(aNode);
             }
         }
@@ -153,13 +165,18 @@ namespace pryBlaiottaIE
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //borrar datos y columnas de la grilla
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
             string leerLinea;
+            //se obtiene la ruta completa del nodo seleccionado en el TreeView y se almacena en la variable Archivo
             string Archivo = Convert.ToString(treeView1.SelectedNode.FullPath);
 
+            
                 string[] pathParts = Archivo.Split('\\');
+                //Se crea una nueva ruta (newPath) excluyendo el primer elemento de pathParts
                 string newPath = String.Join("\\", pathParts.Skip(1));
+                //se encarga de cargar y mostrar datos desde el archivo correspondiente en la grilla
                 CargarDatosDesdeArchivo(newPath);
 
 
