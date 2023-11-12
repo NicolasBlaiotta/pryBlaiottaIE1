@@ -230,7 +230,10 @@ namespace pryBlaiottaIE
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
 
-            string rutaArchivo;= "\\datosproveedores";
+
+            string rutaArchivo = "\\datosproveedores";
+        
+
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
