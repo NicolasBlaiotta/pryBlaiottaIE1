@@ -47,6 +47,7 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.lblJuzgado = new System.Windows.Forms.Label();
             this.txtJuzgado = new System.Windows.Forms.TextBox();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNumero
@@ -190,7 +191,7 @@
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 17;
-            this.btnVolver.Text = "Volver";
+            this.btnVolver.Text = "Volver.......";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
@@ -210,12 +211,23 @@
             this.txtJuzgado.Size = new System.Drawing.Size(100, 20);
             this.txtJuzgado.TabIndex = 19;
             // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(120, 343);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 20;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
             // frmNavegar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(335, 368);
+            this.ClientSize = new System.Drawing.Size(335, 394);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.txtJuzgado);
             this.Controls.Add(this.lblJuzgado);
             this.Controls.Add(this.btnVolver);
@@ -265,5 +277,6 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label lblJuzgado;
         private System.Windows.Forms.TextBox txtJuzgado;
+        private System.Windows.Forms.Button btnSiguiente;
     }
 }

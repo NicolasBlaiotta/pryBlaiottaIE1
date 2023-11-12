@@ -99,5 +99,14 @@ namespace pryBlaiottaIE
 
 
         }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            {
+                frmBD frmBD = new frmBD();
+                frmBD.Show();
+                this.Hide();
+            }
+        }
     }
 }

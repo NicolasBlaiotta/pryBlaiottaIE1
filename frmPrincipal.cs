@@ -230,8 +230,7 @@ namespace pryBlaiottaIE
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
 
-            string rutaArchivo = "\\datosproveedores";
-);
+            string rutaArchivo;= "\\datosproveedores";
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -239,6 +238,11 @@ namespace pryBlaiottaIE
             frmNavegar frmNavegar = new frmNavegar();
             frmNavegar.Show();
             this.Hide();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
