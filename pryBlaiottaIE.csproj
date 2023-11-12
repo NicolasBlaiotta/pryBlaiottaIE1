@@ -46,7 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+
+    <Compile Include="frmBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBD.Designer.cs">
+      <DependentUpon>frmBD.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="frmCarga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +72,12 @@
     <Compile Include="frmNavegar.Designer.cs">
       <DependentUpon>frmNavegar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevo.Designer.cs">
+      <DependentUpon>frmNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +86,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBD.resx">
+      <DependentUpon>frmBD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCarga.resx">
       <DependentUpon>frmCarga.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNavegar.resx">
       <DependentUpon>frmNavegar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevo.resx">
+      <DependentUpon>frmNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
